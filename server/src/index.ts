@@ -22,7 +22,7 @@ const io = new Server(httpServer, {
 const MONGODB_URL: string = process.env.MONGODB_URL ? process.env.MONGODB_URL : '' 
 const DB_NAME: string = process.env.DB_NAME ? process.env.DB_NAME : ''
 
-mongoose.connect(MONGODB_URL , {dbName: DB_NAME})
+// mongoose.connect(MONGODB_URL , {dbName: DB_NAME})
 
 app.get('/', (req: Request, res: Response) => {
     res.send('<h1>Welcome to Anonymous Messages</h1>')
@@ -35,13 +35,13 @@ let AllUsers = []
 io.on("connection", (socket) => {
   socket.on('join_room', async (data) => {
 
-    const newUser = new User({
-        socketId: socket.id,
-        username: data.username,
-        messages: [],
-        rooms: []
-    })
-    await newUser.save()
+    // const newUser = new User({
+    //     socketId: socket.id,
+    //     username: data.username,
+    //     messages: [],
+    //     rooms: []
+    // })
+    // await newUser.save()
 
     socket.join(data.room)
     

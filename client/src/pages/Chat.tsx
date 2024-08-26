@@ -44,6 +44,7 @@ const Chat = ({username, room, socket}: Chat) => {
             __createdtime__
         })
         }
+        setSendMessage('')
     }
 
     useEffect(() =>{
