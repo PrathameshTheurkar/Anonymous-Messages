@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const UserSchema: mongoose.Schema = new Schema({
-    id: {
+    socketId: {
         type: String
     },
     username: {
@@ -17,14 +17,14 @@ const UserSchema: mongoose.Schema = new Schema({
 const MessageSchema: mongoose.Schema = new Schema({
     username: {
         type: String,
-        required: true
+        // required: true
     },
     message: {
         type: String
     },
     room: {
         type: String,
-        required: true
+        // required: true
     },
     __createdtime__: Number
 })
@@ -32,8 +32,7 @@ const MessageSchema: mongoose.Schema = new Schema({
 const RoomSchema: mongoose.Schema = new Schema({
     roomId: {
         type: String,
-        required: true
-    }
+    },
 })
 
 export const User = mongoose.model('User', UserSchema)
